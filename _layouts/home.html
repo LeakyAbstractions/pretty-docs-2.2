@@ -1,0 +1,107 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>{{ site.title }} &bull; {{ page.title }}</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.owner.name }}">
+    <link rel="canonical" href="{{ site.url | append: site.baseurl | append: page.url }}" />
+    <link rel="shortcut icon" href="{{ '/assets/images/favicon.ico'                                        | prepend: site.baseurl }}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <!-- FontAwesome JS -->
+    <script defer type="text/javascript" src="{{ '/assets/fontawesome/js/all.js'                           | prepend: site.baseurl }}"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/plugins/bootstrap/css/bootstrap.min.css'      | prepend: site.baseurl }}">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/plugins/elegant_font/css/style.css'           | prepend: site.baseurl }}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/highlight.css'                            | prepend: site.baseurl }}">
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/styles.css'                               | prepend: site.baseurl }}" id="theme-style">
+    {% include open_graph.html %}
+    {% include twitter_cards.html %}
+
+    {% include google_analytics.html %}
+
+    {% include custom_head.html %}
+
+</head>
+
+<body class="landing-page">
+
+  {% if site.share.github %}
+    {% include github.html %}
+  {% endif %}
+
+  {% if site.share.facebook %}
+    {% include facebook.html %}
+  {% endif %}
+
+    <div class="page-wrapper">
+
+        <!-- ******Header****** -->
+        <header class="header text-center">
+            <div class="container">
+
+                {% include branding.html %}
+
+                <!-- TAGLINE -->
+                <div class="tagline">
+                    {{ page.tagline | markdownify }}
+                </div><!--//tagline-->
+
+<!--
+<div class="main-search-box pt-3 pb-4 d-inline-block"><form class="form-inline search-form justify-content-center" action="" method="get"><input type="text" placeholder="Enter search terms..." name="search" class="form-control search-input"><button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button></form></div>
+-->
+
+                <!-- SOCIAL -->
+                <div class="social-container">
+                  {% if site.share.github %}
+                    {% include github_forkme.html %}
+                    {% include github_button.html %}
+                  {% endif %}
+                  {% if site.share.twitter %}
+                    {% include twitter_button.html %}
+                  {% endif %}
+                  {% if site.share.facebook %}
+                    {% include facebook_button.html %}
+                  {% endif %}
+                </div><!--//social-container-->
+
+            </div><!--//container-->
+        </header><!--//header-->
+
+        <section class="cards-section text-center">
+            <div class="container">
+
+                <h2 class="title">{{ page.heading }}</h2>
+
+                <!-- INTRO -->
+                <div class="intro">
+                    {{ content }}
+                </div><!--//intro-->
+
+                {% include navigation.html navigation=page.navigation %}
+
+            </div><!--//container-->
+        </section><!--//cards-section-->
+
+    </div><!--//page-wrapper-->
+
+    {% include footer.html %}
+
+    <!-- Main Javascript -->
+    <script type="text/javascript" src="{{ '/assets/plugins/jquery-3.4.1.min.js'                           | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ '/assets/plugins/bootstrap/js/bootstrap.min.js'                 | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ '/assets/plugins/stickyfill/dist/stickyfill.min.js'             | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ '/assets/js/main.js'                                            | prepend: site.baseurl }}"></script>
+
+</body>
+</html>

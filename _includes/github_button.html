@@ -1,0 +1,8 @@
+
+                    <!-- Replace with your Github Button -->
+                    <div class="github-btn mb-2">
+                        <a class="github-button" href="https://github.com/{{ site.share.github.repo }}" data-icon="octicon-star" data-size="{{ site.share.github.size }}" aria-label="Star on GitHub">Star</a>
+{% if site.share.github.username %}
+                        <a class="github-button" href="https://github.com/{{ site.share.github.username }}" data-size="{{ site.share.github.size }}" aria-label="Follow on GitHub">Follow @{{ site.share.github.username }}</a>
+{% endif %}
+                    </div>

@@ -1,0 +1,9 @@
+
+                    <!-- Replace with your Twitter Button -->
+                    <div class="twitter-tweet">
+{% if site.owner.twitter %}
+                        <a href="https://twitter.com/{{ site.owner.twitter }}?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @{{ site.owner.twitter }}</a>
+{% endif %}
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ site.twitter.text }}" data-via="{{ site.share.twitter.via }}">{{ site.share.twitter.title }}</a>
+                        <script async type="text/javascript" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+                    </div><!--//tweet-->

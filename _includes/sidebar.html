@@ -1,0 +1,26 @@
+
+                  {% if page.sections %}
+                    <!-- SIDEBAR -->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                              {% for id in page.sections %}
+                                {% assign section = site.doc | where: "id", id | first %}
+                                {% unless section %}
+                                  {% assign url = id | append: '.html' %}
+                                  {% assign section = site.pages | where: "url", url | first %}
+                                {% endunless %}
+                                {% unless section %}{% continue %}{% endunless %}
+                                <a class="nav-link scrollto" href="#{{ section.title | slugify }}">{% if section.short_title %}{{ section.short_title }}{% else %}{{ section.title }}{% endif %}</a>
+                                {% if section.sections %}
+                                  <nav class="doc-sub-menu nav flex-column">
+                                  {% for subsection in section.sections %}
+                                    <a class="nav-link scrollto" href="#{{ subsection | slugify: 'pretty' }}">{{ subsection }}</a>
+                                  {% endfor %}
+                                  </nav><!--//nav-->
+                                {% endif %}
+                              {% endfor %}
+                            </nav><!--//doc-menu-->
+                        </div>
+                    </div><!--//doc-sidebar-->
+                  {% endif %}
